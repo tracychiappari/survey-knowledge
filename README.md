@@ -24,6 +24,7 @@
 ## Files
 
 - `SurveyKnowledge.lua` – Main addon logic
+- `Utilities.lua` - Utility functions to use throughout the addon. Not available until after the addon loads.
 
 ## Usage
 
