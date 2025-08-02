@@ -4,5 +4,7 @@
 ## APIVersion: 101047
 ## AddOnVersion: 1
 ## Version: 1.0.0
+## DependsOn: LibChatMessage
 
+# Main
 SurveyKnowledge.lua
