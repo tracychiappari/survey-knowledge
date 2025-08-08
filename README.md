@@ -24,7 +24,8 @@
 ## Files
 
 - `SurveyKnowledge.lua` – Main addon logic
-- `Utilities.lua` - Utility functions to use throughout the addon. Not available until after the addon loads.
+- `SK_SortFilterList.lua` - Extension of the ZO_SortFilterList to support listing surveys in the UI in a scrollable container.
+- `SK_Utilities.lua` - Utility functions to use throughout the addon. Not available until after the addon loads.
 
 ## Usage
 

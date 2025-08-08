@@ -1,0 +1,82 @@
+<GuiXml>
+    <Controls>
+        <!-- PANEL -->
+        <TopLevelControl name="SurveyKnowledgePanel" clampedToScreen="true" movable="true" mouseEnabled="true" hidden="true" resizeHandleSize="10">
+            <Dimensions x="400" y="600"/>
+            <DimensionConstraints minX="400" minY="300" maxX="400" />
+            <Anchor point="TOPLEFT" relativeTo="GUI_ROOT" relativePoint="TOPLEFT" offsetX="10" offsetY="100" />
+
+            <Controls>
+                <!-- PANEL TITLE -->
+                <Label name="$(parent)Title" font="ZoFontGameBold" text="|cA974E3SURVEY KNOWLEDGE|r">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="20" offsetY="15"/>
+                </Label>
+
+                <Texture name="$(parent)TopDivider" textureFile="/esoui/art/characterwindow/characterwindow_leftside_divider.dds" tier="HIGH">
+                    <Dimensions x="500" y="4"/>
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" offsetX="20" offsetY="50"/>
+                </Texture>
+
+                <Control name="$(parent)MainContainer">
+                    <Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="20" offsetY="60"/>
+                    <Anchor point="BOTTOMRIGHT" offsetX="-20" offsetY="-50" />
+                        <Controls>
+                            <Control name="$(parent)Headers">
+                                <Anchor point="TOPLEFT" />
+                                <Anchor point="TOPRIGHT" />
+                                <Dimensions y="30" />
+                                <Controls>
+                                    <Control name="$(parent)Profession" inherits="ZO_SortHeader">
+                                        <Dimensions x="150" y="30" />
+                                        <Anchor point="LEFT" />
+                                        <OnInitialized>
+                                            ZO_SortHeader_Initialize(self, "Profession", "profession", ZO_SORT_ORDER_UP, TEXT_ALIGN_LEFT, "ZoFontHeader")
+                                        </OnInitialized>
+                                    </Control>
+                                    <Control name="$(parent)Zone" inherits="ZO_SortHeader">
+                                        <Dimensions x="150" y="30" />
+                                        <Anchor point="LEFT" relativeTo="$(parent)Profession" relativePoint="RIGHT" />
+                                        <OnInitialized>
+                                            ZO_SortHeader_Initialize(self, "Zone", "zone", ZO_SORT_ORDER_UP, TEXT_ALIGN_LEFT, "ZoFontHeader")
+                                        </OnInitialized>
+                                    </Control>
+                                </Controls>
+                            </Control>
+                            <Control name="$(parent)List" inherits="ZO_ScrollList">
+                                <Anchor point="TOPLEFT" relativeTo="$(parent)Headers" relativePoint="BOTTOMLEFT" />
+                                <Anchor point="BOTTOMRIGHT" />
+                            </Control>
+                        </Controls>
+                </Control> 
+                
+                <!-- PANEL BACKGROUND -->
+                <Backdrop name="$(parent)Background" inherits="ZO_DefaultBackdrop">
+                    <AnchorFill/>
+                </Backdrop>
+            </Controls>
+        </TopLevelControl>
+
+        <!-- TEMPLATES -->
+        <!-- Survey Knowledge Row Template -->
+        <Control name="SKRowTemplate" virtual="true">
+            <Dimensions x="300" y="30" />
+
+            <!-- Background highlight when selected/hovered -->
+            <Controls>
+                <Texture name="$(parent)Bg" inherits="ZO_ThinListHighlight" />
+                
+                <!-- Name label -->
+                <Label name="$(parent)Profession" font="ZoFontGame" color="FFFFFF" wrapMode="ELLIPSIS">
+                    <Anchor point="LEFT" offsetX="5" />
+                    <Dimensions x="150" />
+                </Label>
+
+                <!-- Value label -->
+                <Label name="$(parent)Zone" font="ZoFontGame" color="FFFFFF" wrapMode="ELLIPSIS">
+                    <Anchor point="LEFT" relativeTo="$(parent)Profession" relativePoint="RIGHT" />
+                    <Dimensions x="145" />
+                </Label>
+            </Controls>
+        </Control>
+    </Controls>
+</GuiXml>

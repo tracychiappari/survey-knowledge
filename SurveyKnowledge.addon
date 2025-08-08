@@ -10,4 +10,8 @@
 SurveyKnowledge.lua
 
 # Helpers
-Utilities.lua
+SK_SortFilterList.lua
+SK_Utilities.lua
+
+# User Interface
+UserInterface.xml
